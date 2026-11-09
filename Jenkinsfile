@@ -20,4 +20,10 @@ pipeline {
             }
         }
     }
+    post {
+        always {
+            echo "In here we will clean all the jenkin files in workspace directory"
+            cleanWs()
+        }
+    }
 }
