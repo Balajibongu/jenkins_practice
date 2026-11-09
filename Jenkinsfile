@@ -1,15 +1,15 @@
 pipeline {
     agent any
     environment{
-        project = 'roboshop'
-        language= 'groovy'
+        PROJECT = 'roboshop'
+        LANGUAGE= 'groovy'
     }
     stages {
         stage('build') {
             steps {
                 echo 'this is build phase'
-                echo 'this project name is :${project}'
-                echo 'this project language :${language}'
+                echo "this project name is: ${PROJECT}"
+                echo "this project language: ${LANGUAGE}"
             }
         }
         stage('test') {
