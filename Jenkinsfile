@@ -9,8 +9,9 @@ pipeline {
         stage('test') {
             steps {
                 echo 'this is test phase'
-                echo "Build Number: ${BUILD_NUMBER}"
-                echo "Workspace: ${WORKSPACE}"
+                sh 'whoami'
+                sh 'pwd'
+                sh 'ls -la'
             }
         }
         stage('deploy') {
