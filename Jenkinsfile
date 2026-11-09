@@ -9,6 +9,8 @@ pipeline {
         stage('test') {
             steps {
                 echo 'this is test phase'
+                echo "Build Number: ${BUILD_NUMBER}"
+                echo "Workspace: ${WORKSPACE}"
             }
         }
         stage('deploy') {
