@@ -1,27 +1,27 @@
 pipeline{
     agent any
     stages{
-        stage("build"){
+        // stage("build"){
+        //     steps{
+        //         timeout(time: 20, unit: 'SECONDS'){
+        //             sh 'sleep 200'
+        //         }
+        //     }
+        // }
+        stage("deploy"){
             steps{
-                timeout(time: 20, unit: 'SECONDS'){
-                    sh 'sleep 200'
+                script{
+                    try{
+                        def y=9/0
+                        echo "${y}"
+                    }
+                    cache(Exception e){
+                        echo "${e.message}"
+                        throw e
+                    }
                 }
             }
         }
-    //     stage("deploy"){
-    //         steps{
-    //             script{
-    //                 try{
-    //                     def y=9/0
-    //                     echo "${y}"
-    //                 }
-    //                 cache(Exception e){
-    //                     echo "${e.message}"
-    //                     throw e
-    //                 }
-    //             }
-    //         }
-    //     }
     }
     post{
         failure {
