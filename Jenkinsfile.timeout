@@ -32,6 +32,7 @@ pipeline{
         }
         always{
             echo 'this is timeout script'
+            cleanWs()
         }
     }
 }
