@@ -1,0 +1,37 @@
+pipeline{
+    agent any
+    stages{
+        stage("build"){
+            steps{
+                timeout(time: 20, unit: 'SECONDS'){
+                    sh 'sleep 200'
+                }
+            }
+        }
+    //     stage("deploy"){
+    //         steps{
+    //             script{
+    //                 try{
+    //                     def y=9/0
+    //                     echo "${y}"
+    //                 }
+    //                 cache(Exception e){
+    //                     echo "${e.message}"
+    //                     throw e
+    //                 }
+    //             }
+    //         }
+    //     }
+    }
+    post{
+        failure {
+            echo 'Pipeline failed!'
+        }
+        success{
+            echo 'your logic was incorrect!'
+        }
+        always{
+            echo 'this is timeout script'
+        }
+    }
+}
