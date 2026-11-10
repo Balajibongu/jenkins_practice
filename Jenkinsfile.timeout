@@ -8,20 +8,20 @@ pipeline{
         //         }
         //     }
         // }
-        stage("deploy"){
+       stage("deploy"){
             steps{
                 script{
                     try{
                         def y=9/0
                         echo "${y}"
                     }
-                    cache(Exception e){
+                    catch(Exception e){
                         echo "${e.message}"
                         throw e
                     }
                 }
             }
-        }
+        } 
     }
     post{
         failure {
